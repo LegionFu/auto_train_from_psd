@@ -18,6 +18,7 @@ Releases
 
 ### Python ###
 *.py[cod]
+*.pyc
 *$py.class
 __pycache__
 .ipynb_checkpoints

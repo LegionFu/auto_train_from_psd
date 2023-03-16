@@ -18,13 +18,13 @@ def setup_ui():
                 reload = gr.Button(value='Reload UI', variant='primary')
 
     def fn_start_train(psd_path):
-        print(psd_path[0].name)
-        psd = PSDImage.open(psd_path[0].name)
+        temppath = psd_path[0].name
+        psd = PSDImage.open(temppath)
 
         for layer in psd:
             print(layer)
             #layer.topil().save("C:\\Users\\legionfu\\Desktop\\"+layer.name+".png") #不带蒙版
-            layer.compose().save("C:\\Users\\legionfu\\Desktop\\"+layer.name+".png") #带蒙版
+            # layer.compose().save("C:\\Users\\legionfu\\Desktop\\"+layer.name+".png") #带蒙版
 
 
     #psd_path.change(fn_test, inputs = psd_path, outputs = [])
