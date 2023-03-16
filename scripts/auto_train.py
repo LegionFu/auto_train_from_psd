@@ -12,11 +12,14 @@ def setup_ui():
                 psd_path = gr.File(file_count="multiple", file_types=[".psd"])
 
             with gr.Row():
+                clear = gr.Button(value='Clear')
                 start_train = gr.Button(value='Start Train')
+            with gr.Row():
+                reload = gr.Button(value='Reload UI', variant='primary')
 
     def fn_start_train(psd_path):
         print(psd_path[0].name)
-        psd = PSDImage.open(psd_path[0])
+        psd = PSDImage.open(psd_path[0].name)
 
         for layer in psd:
             print(layer)
@@ -26,7 +29,15 @@ def setup_ui():
 
     #psd_path.change(fn_test, inputs = psd_path, outputs = [])
 
+    clear.click(fn_clear, inputs=psd_path)
+    reload.click(fn_reload)
     start_train.click(fn_start_train, inputs=psd_path)
+
+def fn_reload():
+    pass
+
+def fn_clear(files):
+    pass
 
 def fn_test(files):
     print(files[0])
